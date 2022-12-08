@@ -40,10 +40,4 @@ def test_submit_positive():
 
 
 
-    # brows
-    # browser.element(".react-datepicker__year-select").click().set(value=1986)
-
-
-
-
 
