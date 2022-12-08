@@ -2,12 +2,18 @@ import pytest
 from selene.support.shared import browser
 
 
-@pytest.fixture(scope="session")
-def set_size_browser():
-    browser.config.window_width = 300
-    browser.config.window_height = 100
+@pytest.fixture(scope='function', autouse=True)
+def browser_management():
+    browser.config.base_url = 'https://demoqa.com'
+    # browser.config.window_width = 1920
+    # browser.config.window_height = 1080
+    yield
+    browser.quit()
+
 
 
 @pytest.fixture()
-def open_browser():
+def open_google():
     browser.open('https://google.ru')
+
+
